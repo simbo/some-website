@@ -1,0 +1,43 @@
+$itemRow
+  display: flex
+  flex-direction: row
+  align-items: center
+
+  > :first-child
+    margin-left: 0
+
+  > :last-child
+    margin-right: 0
+
+  &,
+  &.is-narrow
+    > *
+      margin-left: .5em
+      margin-right @margin-left
+
+  &.is-wide
+    > *
+      margin-left: 1rem
+      margin-right @margin-left
+
+  &,
+  &.is-left
+    justify-content: flex-start
+  
+  &.is-right
+    justify-content: flex-end
+
+  &.is-centered
+    justify-content: center
+
+  &.is-spread
+    justify-content: space-between
+
+  &.is-spaced
+    justify-content: space-around
+
+  &.is-evenly
+    justify-content: space-evenly
+
+.item-row
+  @extend $itemRow

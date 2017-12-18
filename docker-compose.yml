@@ -1,0 +1,13 @@
+version: "2.1"
+
+services:
+
+  dev:
+    container_name: some-website_dev
+    image: simbo/node:8-alpine
+    working_dir: /dock
+    volumes:
+      - .:/dock
+    ports:
+      - 9000:9000
+    command: yarn run dev

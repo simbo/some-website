@@ -1,0 +1,46 @@
+{
+  "name": "some-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Simon Lepel <simbo@simbo.de>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "NODE_ENV=production webpack --hide-modules --no-progress --bail",
+    "dev": "webpack-dev-server --color",
+    "watch": "webpack --hide-modules --watch --progress"
+  },
+  "dependencies": {
+    "css-reset-and-normalize": "^0.3.0",
+    "gsap": "^1.20.3",
+    "vue": "^2.5.11"
+  },
+  "devDependencies": {
+    "@types/gsap": "^1.19.1",
+    "@types/node": "^8.5.1",
+    "@types/webpack": "^3.8.1",
+    "autoprefixer": "^7.2.3",
+    "copy-webpack-plugin": "^4.3.0",
+    "css-loader": "^0.28.7",
+    "css-mqpacker": "^6.0.1",
+    "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "json-loader": "^0.5.7",
+    "postcss-loader": "^2.0.9",
+    "pug": "^2.0.0-rc.4",
+    "pug-html-loader": "^1.1.5",
+    "raw-loader": "^0.5.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "ts-loader": "^3.2.0",
+    "ts-node": "^4.0.2",
+    "typescript": "^2.6.2",
+    "vue-loader": "^13.6.0",
+    "vue-style-loader": "^3.0.3",
+    "vue-template-compiler": "^2.5.11",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7",
+    "webpack-md5-hash": "^0.0.6"
+  }
+}

@@ -1,0 +1,47 @@
+@require 'global-vars'
+@require 'mixins/text-link'
+
+/**
+ * Box Sizing
+ */
+
+*,
+*::before,
+*::after
+  box-sizing: inherit
+
+
+/**
+ * Root
+ */
+
+html
+  box-sizing: border-box
+  font-size: $rootFontSize
+
+body
+  background: $colors.textBg
+  color: $colors.text
+  font-family: $fontFamily.sans
+  font-size: 1rem
+  text-rendering: optimizeLegibility
+
+
+/**
+ * Basic HTML element styles
+ */
+
+pre, code
+  font-family: $fontFamily.monospace
+
+a
+  textLink()
+  outline: none
+  text-decoration: none
+
+button,
+input,
+select,
+textarea
+  outline: none
+  border-radius: 0

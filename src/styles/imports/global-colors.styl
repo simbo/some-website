@@ -1,0 +1,38 @@
+/**
+ * Colors
+ */
+
+/**
+ * Color Name Finder:
+ * http://chir.ag/projects/name-that-color/
+ */
+
+$colorValues = {
+  white:            #fff,
+  black:            #000,
+  pickledBluewood:  #2c3e50,
+  orient:           #005489,
+  mariner:          #2980b9,
+  cornflowerBlue:   #66afec,
+  lynch:            #607d8b,
+  mirage:           #131b23,
+  outerSpace:       #343a40,
+  stack:            #979897,
+  grayNickel:       #c2c2bd,
+  starkWhite:       #e7dfc6,
+  athensGray:       #f2f5f7,
+  ecruWhite:        #f7f4eb,
+  jazzberryJam:     #a40e4c
+}
+
+$colorUseCases = {
+  text:             $colorValues.mirage,
+  textSecondary:    $colorValues.stack,
+  textBg:           $colorValues.ecruWhite,
+  primary:          $colorValues.mariner,
+  primaryDark:      $colorValues.orient,
+  primaryLight:     $colorValues.cornflowerBlue,
+  border:           $colorValues.grayNickel
+}
+
+$colors = merge($colorValues, $colorUseCases);

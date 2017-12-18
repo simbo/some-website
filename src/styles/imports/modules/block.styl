@@ -1,0 +1,12 @@
+$block = {
+  margin: {
+    y: 1.5em
+  }
+}
+
+$block
+  margin-top: ($block.margin.y / 2)
+  margin-bottom: ($block.margin.y / 2)
+
+.block
+  @extend $block

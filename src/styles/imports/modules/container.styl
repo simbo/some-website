@@ -1,0 +1,31 @@
+@require 'mixins/mediaquery'
+
+$container = {
+  padding: {
+    x: 16px,
+    y: 16px
+  }
+}
+
+$container
+  width: 100%
+  max-width: 1680px
+  margin: 0 auto
+  padding: $container.padding.y $container.padding.x
+
+  +mediaquery('tablet-landscape')
+    width: unit(960 / 1024 * 100, '%')
+
+  +mediaquery('small-desktop')
+    width: unit(1056 / 1280 * 100, '%')
+
+  +mediaquery('medium-desktop')
+    width: unit(1280 / 1680 * 100, '%')
+
+  +mediaquery('large-desktop')
+    width: unit(1280 / 1920 * 100, '%')
+
+  
+
+.container
+  @extend $container

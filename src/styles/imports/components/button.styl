@@ -1,0 +1,164 @@
+@require 'global-vars'
+@require 'mixins/layer'
+@require 'mixins/shadow'
+@require 'mixins/text-ellipsis'
+
+$button = {
+  height: 2.5em,
+  minWidth: (16 / 9 * 3em),
+  maxWidth: 100%,
+  fontSize: 1em,
+  lineHeight: (20 / 14),
+  padding: {
+    x: .6em
+  },
+  borderWidth: unit(1 / 16, 'em'),
+  borderRadius: unit(1 / 16, 'em'),
+  icon: {
+    size: 1em,
+    spacing: .5em
+  },
+  spinner: {
+    size: 1.5em
+  }
+}
+
+
+/**
+ * Button reset
+ */
+
+$buttonReset
+  outline: none
+  appearance: none
+  padding: 0
+  border: none
+  border-radius: 0
+  background: none
+
+
+/**
+ * Common button styles
+ */
+
+$buttonBasics
+  @extend $buttonReset
+  display: inline-block
+  position: relative
+  min-height: $button.height
+  min-width: $button.minWidth
+  max-width: $button.maxWidth
+  padding: (($button.height - ($button.borderWidth * 2) - $button.fontSize * $button.lineHeight) / 2) $button.padding.x
+  border: $button.borderWidth solid transparent
+  border-radius: $button.borderRadius
+  background: transparent
+  text-align: center
+  font-weight: 400
+  font-size: 1em
+  line-height: $button.lineHeight
+  text-decoration: none
+  cursor: pointer
+
+  &[disabled],
+  &.is-disabled
+    &,
+    &:hover,
+    &:active
+      border-color: $colors.disabledBg
+      background: $colors.disabledBg
+      color: $colors.disabledText
+      cursor: default
+
+
+/**
+ * Button spinner
+ */
+
+.button__spinner
+  trans(opacity)
+  layerCentered()
+  opacity: 0
+  line-height: 1
+
+$buttonWithSpinner
+
+  .button__spinner
+    width: $button.spinner.size
+
+  &.has-spinner
+
+    .button__label,
+    .button__icon
+      opacity: 0
+
+    .button__spinner
+      opacity: 1
+
+
+/**
+ * Button Label
+ */
+
+.button__label
+  trans(opacity)
+  display: block
+  font-size: $button.fontSize
+
+/**
+ * Button Icon
+ */
+
+.button__icon
+  trans(opacity)
+  layerCenteredY()
+  right: $button.padding.x
+  width: 1rem
+  height: @width
+  opacity: 1
+
+$buttonWithIcon
+
+  .button__icon ~ .button__label
+    margin-right: ($button.icon.size + $button.icon.spacing)
+
+  &.has-icon-only
+    width: $button.height
+    min-width: auto
+    padding: 0
+
+    .button__icon
+      right: 50%
+      transform: translate(50%, -50%)
+
+
+/**
+ * Primary button style
+ */
+
+$buttonPrimary
+  @extend $buttonBasics, $buttonWithSpinner, $buttonWithIcon
+  shadow(1)
+  border-color: $colors.primaryDark
+  background: $colors.primary
+  color: $colors.white
+
+  &.is-active,
+  &:focus,
+  &:hover
+    shadow(3)
+
+  &:active
+    shadow(.5)
+    transform: translate(1px, 1px)
+
+
+/**
+ * Assign button placeholders
+ */
+
+button
+  @extend $buttonReset
+
+btn,
+.button
+  @extend $buttonPrimary

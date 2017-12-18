@@ -1,0 +1,26 @@
+@require 'global-vars'
+
+$content = {
+  spacing: {
+    y: 1.5em
+  }
+}
+
+$contentBlockElement
+  margin-top: $content.spacing.y
+  margin-bottom: $content.spacing.y
+
+  &:first-child
+    margin-top: 0
+
+  &:last-child
+    margin-bottom: 0
+
+$contentContainer
+  line-height: $lineHeight.medium
+
+  p
+    @extend $contentBlockElement
+
+.content
+  @extend $contentContainer

@@ -1,0 +1,55 @@
+@require 'mixins/ratio-expander'
+@require 'mixins/layer'
+@require 'mixins/shadow'
+@require 'global-vars'
+@require 'modules/container'
+@require 'modules/container'
+
+$site = {
+  header: {
+    height: 80px,
+    logo: {
+      width: 48px
+    },
+    title: {
+      size: 32px
+    }
+  },
+  section: {
+    padding: {
+      y: 16px
+    }
+  }
+}
+
+.site-wrap
+  padding-top: $site.header.height
+
+.site-header
+  z-index: $zIndex.siteHeader
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  height: $site.header.height
+  background: $colors.textBg
+
+  &__logo
+    ratioExpander()
+    width: $site.header.logo.width
+
+    svg
+      layerSpanned()
+      g
+        fill: currentColor
+
+  &__title
+    font-size: $site.header.title.size
+
+.site-section
+  padding-top: $site.section.padding.y
+  padding-bottom: $site.section.padding.y
+
+.site-footer
+  font-size: $fontSize.small
+  color: $colors.textSecondary
