@@ -1,4 +1,4 @@
-mixin svgSymbol(name, size = 128)
+mixin svgSymbol(name, size = 100)
   symbol(
     id = `svg-symbol__${name}`,
     viewBox = `0 0 ${size} ${size}`
@@ -14,8 +14,11 @@ mixin svgSymbol(name, size = 128)
 
     use(v-bind:xlink:href = "symbolLink")
 
-    +svgSymbol("unicorn")
+    +svgSymbol("unicorn", 128)
       include ./icons/unicorn.pug
+
+    +svgSymbol("calvin", 100)
+      include ./icons/calvin.pug
 
     +svgSymbol("spinner", 70)
       include ./icons/spinner.pug
