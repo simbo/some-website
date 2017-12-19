@@ -1,0 +1,25 @@
+@require 'global-vars'
+
+$text
+  line-height: $lineHeight.medium
+
+.text,
+.text--medium
+  @extend $text
+  font-size: $fontSize.medium
+
+.text--small
+  @extend $text
+  font-size: $fontSize.small
+
+.text--large
+  @extend $text
+  font-size: $fontSize.large
+
+.text--xl
+  @extend $text
+  font-size: $fontSize.xl
+
+.text--xxl
+  @extend $text
+  font-size: $fontSize.xxl
