@@ -1,6 +1,8 @@
+import * as Path from 'path';
 import * as CommonsChunkPlugin from 'webpack/lib/optimize/CommonsChunkPlugin';
 import * as ContextReplacementPlugin from 'webpack/lib/ContextReplacementPlugin';
 import * as CopyWebpackPlugin from 'copy-webpack-plugin';
+import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as OccurrenceOrderPlugin from 'webpack/lib/optimize/OccurrenceOrderPlugin';
@@ -14,6 +16,16 @@ import { IS_PRODUCTION } from './env';
 import { paths } from './paths';
 
 export const plugins: Webpack.Plugin[] = [
+
+  // delete generated files before build
+  new CleanWebpackPlugin([
+    Path.relative(paths.root(), paths.dist())
+  ], {
+    root: paths.root(),
+    exclude: [],
+    verbose: true,
+    dry: true
+  }),
 
   // define global constants
   new DefinePlugin(globals),
