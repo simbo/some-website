@@ -1,0 +1,21 @@
+@require 'global-vars'
+@require 'mixins/ratio-expander'
+@require 'mixins/layer'
+
+/**
+ * Generic SVG Icon
+ */
+
+.svg-icon
+  ratioExpander()
+  width: 100%
+  line-height: 1
+
+  &.is-inline
+    display: inline-block
+    width: 1em
+    vertical-align: -.1em
+
+  svg
+    layerSpanned()
+    fill: currentColor

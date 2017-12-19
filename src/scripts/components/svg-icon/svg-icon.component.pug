@@ -1,0 +1,21 @@
+mixin svgSymbol(name, size = 128)
+  symbol(
+    id = `svg-symbol__${name}`,
+    viewBox = `0 0 ${size} ${size}`
+  )
+    block
+
+.svg-icon
+
+  svg(
+    viewBox = "0 0 128 128",
+    xmlns="http://www.w3.org/2000/svg"
+  )
+
+    use(v-bind:xlink:href = "symbolLink")
+
+    +svgSymbol("unicorn")
+      include ./icons/unicorn.pug
+
+    +svgSymbol("spinner", 70)
+      include ./icons/spinner.pug
