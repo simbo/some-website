@@ -22,9 +22,7 @@ export const plugins: Webpack.Plugin[] = [
     Path.relative(paths.root(), paths.dist())
   ], {
     root: paths.root(),
-    exclude: [],
-    verbose: true,
-    dry: true
+    exclude: []
   }),
 
   // define global constants
