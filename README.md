@@ -5,6 +5,10 @@ Some Website
 
 ---
 
+**Live Demo: [simbo.github.io/some-website](https://simbo.github.io/some-website/)
+
+---
+
 <!-- TOC -->
 
 - [Development](#development)
@@ -82,4 +86,3 @@ docker-compose run --rm dev yarn run build
 
 MIT License (see [`LICENSE.md`](./LICENSE.md))  
 Copyright © 2017 Simon Lepel
-
