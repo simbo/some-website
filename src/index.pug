@@ -15,7 +15,7 @@ html
 
             .item-row__item
               .site-header__logo
-                include ./assets/images/calvin.svg
+                svg-icon(name = "calvin")
 
             .item-row__item
               .site-header__title Some Website
@@ -24,10 +24,12 @@ html
         .container
 
           .block
-            .svg-icon.is-inline
+            .text--xxl
+
+              each icon in ["unicorn", "calvin", "spinner"]
+                svg-icon.is-inline(name = icon)
 
           .block
-
             .item-row
 
               .item-row__item
