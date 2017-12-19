@@ -17,14 +17,6 @@ import { paths } from './paths';
 
 export const plugins: Webpack.Plugin[] = [
 
-  // delete generated files before build
-  new CleanWebpackPlugin([
-    Path.relative(paths.root(), paths.dist())
-  ], {
-    root: paths.root(),
-    exclude: []
-  }),
-
   // define global constants
   new DefinePlugin(globals),
 
@@ -90,6 +82,14 @@ export const plugins: Webpack.Plugin[] = [
  */
 
 ].concat(IS_PRODUCTION ? [
+
+  // delete generated files before build
+  new CleanWebpackPlugin([
+    Path.relative(paths.root(), paths.dist())
+  ], {
+    root: paths.root(),
+    exclude: []
+  }),
 
   // use consistent named chunks
   new NamedChunksPlugin(),
