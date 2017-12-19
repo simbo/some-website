@@ -2,7 +2,7 @@ import * as Path from 'path';
 
 const root = Path.dirname(__dirname);
 const src = Path.join(root, 'src');
-const dist = Path.join(root, 'dist');
+const dist = Path.join(root, 'docs');
 
 const basePaths: {[key: string]: string} = {
   root,
