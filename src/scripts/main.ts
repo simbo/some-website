@@ -6,11 +6,13 @@ import 'gsap/ScrollToPlugin';
 
 import { components } from './components';
 
+Object.keys(components).forEach((componentName) => {
+  Vue.component(componentName, components[componentName]);
+});
+
 new Vue({
 
   el: '.vue',
-
-  components,
 
   data() {
     return {
