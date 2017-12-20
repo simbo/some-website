@@ -4,6 +4,7 @@ import Vue from 'vue';
 import { TweenMax, TweenConfig } from 'gsap';
 import 'gsap/ScrollToPlugin';
 
+import './modules/prism';
 import { components } from './components';
 
 Object.keys(components).forEach((componentName) => {
