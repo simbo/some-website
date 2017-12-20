@@ -1,10 +1,9 @@
-import * as stylus from 'stylus';
-import * as Webpack from 'webpack';
+const stylus = require('stylus');
 
-import { globals } from './../globals';
-import { paths } from './../paths';
+const globals = require('./../globals');
+const paths = require('./../paths');
 
-export const stylusLoader: Webpack.Loader = {
+module.exports = {
   loader: 'stylus-loader',
   options: {
     ...globals,

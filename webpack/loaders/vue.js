@@ -1,11 +1,10 @@
-import * as Webpack from 'webpack';
+const postcssLoader = require('./postcss');
+const stylusLoader = require('./stylus');
+const pugLoader = require('./pug');
+const typescriptLoader = require('./typescript');
+const babelLoader = require('./babel');
 
-import { postcssLoader } from './postcss';
-import { stylusLoader } from './stylus';
-import { pugLoader } from './pug';
-import { typescriptLoader } from './typescript';
-
-export const vueLoader: Webpack.Loader = {
+module.exports = {
   loader: 'vue-loader',
   options: {
     loaders: {
@@ -19,6 +18,7 @@ export const vueLoader: Webpack.Loader = {
         pugLoader
       ],
       ts: [
+        babelLoader,
         typescriptLoader
       ]
     }

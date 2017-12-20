@@ -1,21 +1,24 @@
-import * as Path from 'path';
-import * as CommonsChunkPlugin from 'webpack/lib/optimize/CommonsChunkPlugin';
-import * as ContextReplacementPlugin from 'webpack/lib/ContextReplacementPlugin';
-import * as CopyWebpackPlugin from 'copy-webpack-plugin';
-import * as CleanWebpackPlugin from 'clean-webpack-plugin';
-import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
-import * as OccurrenceOrderPlugin from 'webpack/lib/optimize/OccurrenceOrderPlugin';
-import * as UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
-import { DefinePlugin, ProvidePlugin, NamedChunksPlugin, NamedModulesPlugin } from 'webpack';
-import * as Webpack from 'webpack';
-import * as WebpackMd5Hash from 'webpack-md5-hash';
+const Path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OccurrenceOrderPlugin = require('webpack/lib/optimize/OccurrenceOrderPlugin');
+const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+const NamedChunksPlugin = require('webpack/lib/NamedChunksPlugin');
+const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
 
-import { globals } from './globals';
-import { IS_PRODUCTION } from './env';
-import { paths } from './paths';
+const globals = require('./globals');
+const IS_PRODUCTION = require('./env').IS_PRODUCTION;
+const paths = require('./paths');
 
-export const plugins: Webpack.Plugin[] = [
+module.exports = [
 
   // define global constants
   new DefinePlugin(globals),
@@ -102,27 +105,9 @@ export const plugins: Webpack.Plugin[] = [
 
   // uglify
   new UglifyJsPlugin({
-    sourceMap: true,
-    beautify: false,
-    output: {
-      comments: false
-    },
-    mangle: {
-      screw_ie8: true
-    },
-    compress: {
-      screw_ie8: true,
-      warnings: false,
-      conditionals: true,
-      unused: true,
-      comparisons: true,
-      sequences: true,
-      dead_code: true,
-      evaluate: true,
-      if_return: true,
-      join_vars: true,
-      negate_iife: false
-    }
-  })
+    sourceMap: true
+  }),
+
+  // new BundleAnalyzerPlugin()
 
 ] : []);

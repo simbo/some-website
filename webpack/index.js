@@ -1,24 +1,23 @@
-import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
-import * as Webpack from 'webpack';
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-import { IS_PRODUCTION } from './env';
-import { paths } from './paths';
-import { plugins } from './plugins';
-import { loaders } from './loaders';
+const IS_PRODUCTION = require('./env');
+const paths = require('./paths');
+const plugins = require('./plugins');
+const loaders = require('./loaders');
 
-const watchOptions: Webpack.Options.WatchOptions = {
+const watchOptions = {
   poll: true,
   ignored: /node_modules/
 };
 
-const outputFilename = (path: string, ...trailers: string[]): string => {
+const outputFilename = (path, ...trailers) => {
   const trail = [path];
   if (IS_PRODUCTION) trail.push('[chunkhash]');
   trail.push(...trailers);
   return trail.join('.');
 };
 
-export const config: Webpack.Configuration = {
+module.exports = {
 
   context: paths.root(),
 
@@ -63,18 +62,22 @@ export const config: Webpack.Configuration = {
     rules: [
       {
         test: /\.ts$/,
+        exclude: /node_modules/,
         use: [
+          loaders.babel,
           loaders.typescript
         ]
       },
       {
         test: /\.json$/,
+        exclude: /node_modules/,
         use: [
           'json-loader'
         ]
       },
       {
         test: /\.styl$/,
+        exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           use: [
             'css-loader?sourceMap',
@@ -85,6 +88,7 @@ export const config: Webpack.Configuration = {
       },
       {
         test: /\.pug$/,
+        exclude: /node_modules/,
         use: [
           'raw-loader',
           loaders.pug
@@ -92,6 +96,7 @@ export const config: Webpack.Configuration = {
       },
       {
         test: /\.vue$/,
+        exclude: /node_modules/,
         use: [
           loaders.vue
         ]
