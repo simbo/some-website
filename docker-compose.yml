@@ -5,9 +5,9 @@ services:
   dev:
     container_name: some-website_dev
     image: simbo/node:8-alpine
-    working_dir: /dock
+    working_dir: /project
     volumes:
-      - .:/dock
+      - .:/project
     ports:
       - 9000:9000
     command: yarn run dev
