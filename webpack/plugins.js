@@ -108,6 +108,13 @@ module.exports = [
     sourceMap: true
   }),
 
-  // new BundleAnalyzerPlugin()
+  // optional bundle analyizer service
+  // new BundleAnalyzerPlugin({
+  //   analyzerMode: 'server',
+  //   analyzerHost: '0.0.0.0',
+  //   analyzerPort: 9000,
+  //   defaultSizes: 'gzip',
+  //   openAnalyzer: false
+  // })
 
 ] : []);
